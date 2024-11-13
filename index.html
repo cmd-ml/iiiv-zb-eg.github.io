@@ -152,12 +152,22 @@
 		y1 = document.querySelector("#num4").value
 		y2 = document.querySelector("#num5").value
 		y3 = document.querySelector("#num6").value
-		Ridge_Eg_Gamma = joblib.load('Ridge_Eg.pkl','r') # For Gamma Valley
-		feature=pd.DataFrame({'Al':[x1],'Ga':[x2],'In':[x3],'P':[y1],'As':[y2],'Sb':[y3]})
-		eg = Ridge_Eg_Gamma.predict(feature)[0]
-		Ridge_Eg_X     = joblib.load('Ridge_Ex.pkl','r')  # For X Valley
+
+		x = float(x1) + float(x2) + float(x3)
+		y = float(y1) + float(y2) + float(y3)
 		output_div = document.querySelector("#output")
-		output_div.innerText = eg
+		if x == 1 and y == 1:
+			feature=pd.DataFrame({'Al':[x1],'Ga':[x2],'In':[x3],'P':[y1],'As':[y2],'Sb':[y3]})
+			Ridge_Eg_Gamma = joblib.load('Ridge_Eg.pkl','r') # For Gamma Valley
+			Ridge_Eg_X     = joblib.load('Ridge_Ex.pkl','r')  # For X Valley
+			eg = min(Ridge_Eg_Gamma.predict(feature)[0],Ridge_Eg_X.predict(feature)[0])
+			output_div.innerText = str(eg) + " eV"
+		elif x != 1 and y == 1:
+			output_div.innerText = "Charge neutrality is not maintained for cations."
+		elif x == 1 and y != 1:
+			output_div.innerText = "Charge neutrality is not maintained for anions."
+		else:
+			output_div.innerText = "Charge neutrality is not maintained for both cations and anions."
     </py-script>
   </body>
 </html>
