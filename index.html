@@ -49,22 +49,22 @@
 		  		<pre><b>Cations</b></pre>
 		  	</div>
 		    <p><pre>Molar fraction of <b><i>Al</i></b></pre></p>
-		    <input type="number" id="num1" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;"/>
+		    <input type="number" id="num1" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%);"/>
 		    <p><pre>Molar fraction of <b><i>Ga</i></b></pre></p>
-		    <input type="number" id="num2" min="0" max="1.0" value="1" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;"/>
+		    <input type="number" id="num2" min="0" max="1.0" value="1" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%);"/>
 		    <p><pre>Molar fraction of <b><i>In</i></b></pre></p>
-		    <input type="number" id="num3" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;"/>
+		    <input type="number" id="num3" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%);"/>
 		  </div>
 		  <div id="UserInput2" style="float:left; width: 50%;  margin-botom: 10px;">
 		  	<div style="transform: translateX(20%);">
 		  		<pre><b>Anions</b></pre>
 		  	</div>
 		    <p><pre>Molar fraction of <b><i>P</i></b></pre></p>
-		    <input type="number" id="num4" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;"/>
+		    <input type="number" id="num4" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%);"/>
 		    <p><pre>Molar fraction of <b><i>As</i></b></pre></p>
-		    <input type="number" id="num5" min="0" max="1.0" value="1" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;"/>
+		    <input type="number" id="num5" min="0" max="1.0" value="1" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%);"/>
 		    <p><pre>Molar fraction of <b><i>Sb</i></b></pre></p>
-		    <input type="number" id="num6" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;"/>
+		    <input type="number" id="num6" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%);"/>
 		  </div>
 		  <div style="float:left; width: 100%; ">
 	    	<p><pre>Please click on the button to predict the energy band gap of your compound:</pre></p>
@@ -74,24 +74,24 @@
 	    	<p><pre>The predicted energy bandgap is:</pre></p>
 	    	<div style="margin-bottom: 5px; width: 65%; background-color: #FEFFFF; margin-left: 2px; margin-right: 2px; border: none; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(20%); float:center;">
 	    		<p id="output1" style="font-size: 14px; font-family: Courier New, monospace; color:#3D52A0; text-align: center;"></p>
-	    </div>
+	    	</div>
       </div>
 	  </div>
 		<div style="float:left; width: 45%; height: 800px; color: #7091E6; transform: translateX(2%); border: 2px solid; padding: 10px; display: inline-block; margin: 4px 2px; border-radius: 12px;">
 			<div style="transform: translateX(2%);">
 				<label for="combination"><pre style="font-size: 14px;"><b>Configure the desired compound to plot its predicted energy profile:</b></pre></label>
 				<pre> Select the constituting elements of your compounds: </pre>
-				<input type="checkbox" id="element1" name="Al" value="Al">
+				<input type="checkbox" id="element1" name="Al" value="1" onChange="update1(this)">
 			  <label for="element1"> <b>Al</b></label>
-			  <input type="checkbox" id="element2" name="Ga" value="Ga">
+			  <input type="checkbox" id="element2" name="Ga" value="1" onChange="update1(this)">
 			  <label for="element2"> <b>Ga</b></label>
-			  <input type="checkbox" id="element3" name="In" value="In">
+			  <input type="checkbox" id="element3" name="In" value="1" onChange="update1(this)">
 			  <label for="element3"> <b>In</b></label>
-			  <input type="checkbox" id="element4" name="P" value="P">
+			  <input type="checkbox" id="element4" name="P" value="1" onChange="update2(this)">
 			  <label for="element4"> <b>P</b></label>
-			  <input type="checkbox" id="element5" name="As" value="As">
+			  <input type="checkbox" id="element5" name="As" value="1" onChange="update2(this)">
 			  <label for="element5"> <b>As</b></label>
-			  <input type="checkbox" id="element6" name="Sb" value="Sb">
+			  <input type="checkbox" id="element6" name="Sb" value="1" onChange="update2(this)">
 			  <label for="element6"> <b>Sb</b></label><br>
 
 				 <pre>Select either cations or anions:</pre>
@@ -121,15 +121,46 @@
     	<pre style="margin-top: 0px;"><b>Please cite:</b><br>- Mohammad Alsalman et. al., “Bandgap Energy Prediction of Senary Zincblende III-V Semiconductor Compounds using Machine Learning,” Materials Science in Semiconductor<br>  Processing, vol. 161, p. 107461, 2023.</pre>
 		</div>
 		<script>
-		  var comb1  = document.getElementById("comb1");
-		  var demo = document.getElementById("chart");
-		  var comb2  = document.getElementById("comb2");
-		  var comb3  = document.getElementById("comb3");
-		  var stext1  = document.getElementById("stext1");
-	  	stext1.style.display = "none";
-	    comb2.style.display = "none";
-	    comb3.style.display = "none";
+			// Variables
+		  var num1     = document.getElementById("num1");
+		  var num2     = document.getElementById("num2");
+		  var num3     = document.getElementById("num3");
+		  var num4     = document.getElementById("num4");
+		  var num5     = document.getElementById("num5");
+		  var num6     = document.getElementById("num6");
+		  var comb1     = document.getElementById("comb1");
+		  var demo      = document.getElementById("chart");
+		  var comb2     = document.getElementById("comb2");
+		  var comb3     = document.getElementById("comb3");
+		  var stext1    = document.getElementById("stext1");
+		  const al      = document.getElementById("element1");
+		  const ga      = document.getElementById("element2");
+		  const ni      = document.getElementById("element3");
+		  const p       = document.getElementById("element4");
+		  const as      = document.getElementById("element5");
+		  const sb      = document.getElementById("element6");
+		  var sc        = 0;
+		  var sa        = 0;
 
+		  // Initialization
+	    num1.value          = 0;
+	    num2.value          = 1;
+	    num3.value          = 0;
+	    num4.value          = 0;
+	    num5.value          = 1;
+	    num6.value          = 0;
+	  	stext1.style.display = "none";
+	    comb2.style.display  = "none";
+	    comb3.style.display  = "none";
+	    comb1.value          = "empty";
+	    al.checked = false;
+	    ga.checked = false;
+	    ni.checked = false;
+	    p.checked  = false;
+	    as.checked = false;
+	    sb.checked = false;
+
+	    // Functions
 			function myFunction() {
 			  if (comb1.value != "empty") {
 			    demo.style.display = "block";
@@ -138,11 +169,11 @@
 			  }
 			}
 			function Visibility1() {
-			  if (comb1.value == "cation") {
+			  if (comb1.value == "cation" && sc == 3) {
 			  	stext1.style.display = "block";
 			    comb2.style.display = "block";
 			    comb3.style.display = "none";
-			  } else if (comb1.value == "anion"){
+			  } else if (comb1.value == "anion" && sa == 3){
 			  	stext1.style.display = "block";
 			    comb2.style.display = "none";
 			    comb3.style.display = "block";
@@ -151,6 +182,26 @@
 			    comb2.style.display = "none";
 			    comb3.style.display = "none";
 			  }
+			}
+			function update1(check1) {
+			    if(check1.checked == true){
+			    	sc = sc + 1;
+			    	comb1.value = "empty";
+			    }
+			    if(check1.checked == false){
+			    	sc = sc - 1;
+			    	comb1.value = "empty";
+			    }
+			}
+			function update2(check2) {
+			    if(check2.checked == true){
+			    	sa = sa + 1;
+			    	comb1.value = "empty";
+			    }
+			    if(check2.checked == false){
+			    	sa = sa - 1;
+			    	comb1.value = "empty";
+			    }
 			}
 		</script>
     <script type="py" async>
