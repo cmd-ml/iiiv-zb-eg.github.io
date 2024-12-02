@@ -2,8 +2,8 @@
 <html>
   <head>
       <meta charset="utf-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+      <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     	<link rel="stylesheet" href="https://pyscript.net/releases/2024.4.1/core.css"> <!--most recent pyscript lib-->
     	<script type="module" src="https://pyscript.net/releases/2024.4.1/core.js"></script> <!--most recent pyscript lib-->
 	    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.5.1.min.js"></script>
@@ -21,104 +21,109 @@
       </py-config>
   <style>
 	.div {
-	  /*border: 2px solid;  padding: 20px; */
+	  /*border: 2px solid; */ padding: 20px; 
 	  width: 450px; 
 	  height: 450px; 
 	  background-color: #FEFFFF;
 	  display: inline-block; 
 	  margin: 4px 2px; 
-	  border-radius: 12px;"
+	  border-radius: 12px;
+	  resize: both;  overflow: auto;"
 	}
 	</style>
   </head>
   <body style="background-color: #EDE8F5;">
-  	<div style="color:#3D52A0;text-align:center; height: 40px; margin-bottom: 40px;">
+  	<div style="color:#3D52A0;text-align:center; min-height: 50px; margin-bottom: 40px; text-overflow: ellipsis;">
     	<h1>Energy Bandgap Predictor of III-V Senary Zincblende Compounds:<br>Machine Learning Model</h1>
     </div>
-<!-- 	  <div style="float:left; width: 50%; height: 10%;">
-    </div> transform: translateX(2%); background: linear-gradient(to right, #8697C4, #EDE8F5) border: none; background: linear-gradient(to right, #EDE8F5, #8697C4);-->
-    <div style="float:left; width: 50%; height: 800px; color: #7091E6; margin-botom: 20px; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; border: 2px solid;">
-    	<div style="margin-bottom: 5px; background-color: #3D52A0; border: none; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; color:#EDE8F5;">
-	    	<pre style="font-size: 14px; margin-bottom: 0px; margin-left: 10px; height: 5px;"><b>User Guide:</b></pre>
-	    	<pre style="font-size: 12px; margin-left: 15px;">- Please wait for around 20 seconds until the webpage is loaded.<br>- If the website is not responding, please try to open the website using different web browser.<br>- The left panel predicts a single-point energy bandgap of the desired compound.<br>- The right panel plots the predicted energy bandgap of the desired compound over <br>  a range of specified molar fractions.<br>- The figure of the predicted energy bandgap will appear after pressing "Plot" button.</pre>
+		<div style="float:left; width: 10%; max-height: 200px; color: #7091E6; margin-bottom: 0px; padding: 10px; font-size: 14px; margin: 4px 2px; border-radius: 12px; border: 2px solid;">
+    	<p style="margin-top: 0px; flex-wrap: wrap; font-family: Courier New, monospace;"><b>Please cite:</b><br>- Mohammad Alsalman et. al., “Bandgap Energy Prediction of Senary Zincblende III-V Semiconductor Compounds using Machine Learning,” Materials Science in Semiconductor Processing, vol. 161, p. 107461, 2023.</p>
+		</div>
+    <div style="float:left; width: 48%; min-height: 800px; color: #7091E6; margin-botom: 20px; padding: 10px; font-size: 14px; margin: 4px 2px; border-radius: 12px; border: 2px solid;">
+    	<div style="margin-bottom: 5px; min-hieght: 50px; background-color: #3D52A0; border: none; font-size: 14px; margin: 4px 2px; border-radius: 12px; color:#EDE8F5; text-overflow: ellipsis;">
+	    	<p style="font-size: 14px; margin-bottom: 0px; margin-left: 10px; height: 5px; wrap; font-family: Courier New, monospace;"><b>User Guide:</b></p>
+	    	<p style="font-size: 12px; margin-left: 15px; flex-wrap: wrap; font-family: Courier New, monospace;">- Please wait for around 20 seconds until the webpage is loaded.<br>- If the website is not responding, please try to open the website using different web browser.<br>- The first panel from the left predicts a single-point energy bandgap of the desired compound.<br>- The right panel plots the predicted energy bandgap of the desired compound over <br>  a range of specified molar fractions.<br>- The figure of the predicted energy bandgap will appear after pressing "Plot" button.</p>
 	    </div>
-	    <pre style="font-size: 14px;"><b>Specify the molar fraction of the desired compound to predict its energy bandgap:</b>
-	    	Configuration: <i>Al<sub>x<sub>1</sub></sub> Ga<sub>x<sub>2</sub></sub> In<sub>x<sub>3</sub></sub> P<sub>y<sub>1</sub></sub> As<sub>y<sub>2</sub></sub> Sb<sub>y<sub>3</sub></sub></i></pre>
-	    <div id="UserInput1" style="float:left; width: 50%; margin-botom: 10px;">
-		  	<div style="transform: translateX(20%);">
-		  		<pre><b>Cations</b></pre>
+	    <p style="font-size: 14px; flex-wrap: wrap; font-family: Courier New, monospace;"><b>Specify the molar fraction of the desired compound to predict its energy bandgap:</b>
+	    	Configuration: <i>Al<sub>x<sub>1</sub></sub> Ga<sub>x<sub>2</sub></sub> In<sub>x<sub>3</sub></sub> P<sub>y<sub>1</sub></sub> As<sub>y<sub>2</sub></sub> Sb<sub>y<sub>3</sub></sub></i></p>
+	    <div id="UserInput1" style="float:left; transform: translateX(25%); width: 40%; margin-botom: 10px; margin-right:100px;">
+		  	<div style="transform: translateX(25%);">
+		  		<p style="flex-wrap: wrap; font-family: Courier New, monospace;"><b>Cations</b></p>
 		  	</div>
-		    <p><pre>Molar fraction of <b><i>Al</i></b></pre></p>
-		    <input type="number" id="num1" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%);"/>
-		    <p><pre>Molar fraction of <b><i>Ga</i></b></pre></p>
-		    <input type="number" id="num2" min="0" max="1.0" value="1" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%);"/>
-		    <p><pre>Molar fraction of <b><i>In</i></b></pre></p>
-		    <input type="number" id="num3" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%);"/>
+		    <p style="flex-wrap: wrap; font-family: Courier New, monospace;">Molar fraction of <b><i>Al</i></b></p>
+		    <input type="number" id="num1" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%); text-align:center;"/>
+		    <p style="flex-wrap: wrap; font-family: Courier New, monospace;">Molar fraction of <b><i>Ga</i></b></p>
+		    <input type="number" id="num2" min="0" max="1.0" value="1" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%); text-align:center;"/>
+		    <p style="flex-wrap: wrap; font-family: Courier New, monospace;">Molar fraction of <b><i>In</i></b></p>
+		    <input type="number" id="num3" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%); text-align:center;"/>
 		  </div>
-		  <div id="UserInput2" style="float:left; width: 50%;  margin-botom: 10px;">
-		  	<div style="transform: translateX(20%);">
-		  		<pre><b>Anions</b></pre>
+		  <div id="UserInput2" style="float:left; min-width: 40%; transform: translateX(7.5%); margin-botom: 10px; margin-right:0px;">
+		  	<div style="transform: translateX(25%);">
+		  		<p style="flex-wrap: wrap; font-family: Courier New, monospace;"><b>Anions</b></p>
 		  	</div>
-		    <p><pre>Molar fraction of <b><i>P</i></b></pre></p>
-		    <input type="number" id="num4" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%);"/>
-		    <p><pre>Molar fraction of <b><i>As</i></b></pre></p>
-		    <input type="number" id="num5" min="0" max="1.0" value="1" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%);"/>
-		    <p><pre>Molar fraction of <b><i>Sb</i></b></pre></p>
-		    <input type="number" id="num6" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%);"/>
+		    <p style="flex-wrap: wrap; font-family: Courier New, monospace;">Molar fraction of <b><i>P</i></b></p>
+		    <input type="number" id="num4" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%); text-align:center;"/>
+		    <p style="flex-wrap: wrap; font-family: Courier New, monospace;">Molar fraction of <b><i>As</i></b></p>
+		    <input type="number" id="num5" min="0" max="1.0" value="1" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%); text-align:center;"/>
+		    <p style="flex-wrap: wrap; font-family: Courier New, monospace;">Molar fraction of <b><i>Sb</i></b></p>
+		    <input type="number" id="num6" min="0" max="1.0" value="0" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(50%); text-align:center;"/>
 		  </div>
-		  <div style="float:left; width: 100%; ">
-	    	<p><pre>Please click on the button to predict the energy band gap of your compound:</pre></p>
-	    	<button py-click="predictor" style="transform: translateX(400%); 
-	    	background-color: #7091E6; width: 10%; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px;
-	    	display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;">Predict</button>
-	    	<p><pre>The predicted energy bandgap is:</pre></p>
-	    	<div style="margin-bottom: 5px; width: 65%; background-color: #FEFFFF; margin-left: 2px; margin-right: 2px; border: none; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(20%); float:center;">
+		  <div style="float:left; width: 100%;">
+	    	<p style="flex-wrap: wrap; font-family: Courier New, monospace;">Please click on the button to predict the energy band gap of your compound:</p>
+	    </div>
+	    <div style="float:right; width:60%;">
+	    	<button py-click="predictor" class="vertical-center" style="width: 75px;
+	    	background-color: #7091E6; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px;
+	    	font-size: 14px; margin: 4px 2px; border-radius: 12px; word-wrap: break-word;">Predict</button>
+	    </div>
+	    <div style="float:left; width: 100%;">
+	    	<p style="flex-wrap: wrap; font-family: Courier New, monospace;">The predicted energy bandgap is:</p>
+	    	<div style="margin-bottom: 5px; width: 65%; background-color: #FEFFFF; margin-left: 2px; margin-right: 2px; border: none; font-size: 14px; margin: 4px 2px; border-radius: 12px; transform: translateX(20%); float:center; ">
 	    		<p id="output1" style="font-size: 14px; font-family: Courier New, monospace; color:#3D52A0; text-align: center;"></p>
 	    	</div>
+	    </div>
       </div>
-	  </div>
-		<div style="float:left; width: 45%; height: 800px; color: #7091E6; transform: translateX(2%); border: 2px solid; padding: 10px; display: inline-block; margin: 4px 2px; border-radius: 12px;">
+    </div>
+		<div style="float:left; width: 48%; min-height: 800px; color: #7091E6; transform: translateX(2%); border: 2px solid; padding: 10px; display: inline-block; margin: 4px -1%; border-radius: 12px;">
 			<div style="transform: translateX(2%);">
-				<label for="combination"><pre style="font-size: 14px;"><b>Configure the desired compound to plot its predicted energy profile:</b></pre></label>
-				<pre> Select the constituting elements of your compounds: </pre>
-				<input type="checkbox" id="element1" name="Al" value="1" onChange="update1(this)">
+				<label for="combination"><p style="font-size: 14px; flex-wrap: wrap; font-family: Courier New, monospace;"><b>Configure the desired compound to plot its predicted energy profile:</b></p></label>
+				<p style="flex-wrap: wrap; font-family: Courier New, monospace;"> Select the constituting elements of your compounds: </p>
+				<input type="checkbox" id="element1" name="Al" value="1" onChange="update1(this)" style="accent-color: #3D52A0;">
 			  <label for="element1"> <b>Al</b></label>
-			  <input type="checkbox" id="element2" name="Ga" value="1" onChange="update1(this)">
+			  <input type="checkbox" id="element2" name="Ga" value="1" onChange="update2(this)" style="accent-color: #3D52A0;">
 			  <label for="element2"> <b>Ga</b></label>
-			  <input type="checkbox" id="element3" name="In" value="1" onChange="update1(this)">
+			  <input type="checkbox" id="element3" name="In" value="1" onChange="update3(this)" style="accent-color: #3D52A0;">
 			  <label for="element3"> <b>In</b></label>
-			  <input type="checkbox" id="element4" name="P" value="1" onChange="update2(this)">
+			  <input type="checkbox" id="element4" name="P" value="1" onChange="update4(this)" style="accent-color: #3D52A0;">
 			  <label for="element4"> <b>P</b></label>
-			  <input type="checkbox" id="element5" name="As" value="1" onChange="update2(this)">
+			  <input type="checkbox" id="element5" name="As" value="1" onChange="update5(this)" style="accent-color: #3D52A0;">
 			  <label for="element5"> <b>As</b></label>
-			  <input type="checkbox" id="element6" name="Sb" value="1" onChange="update2(this)">
+			  <input type="checkbox" id="element6" name="Sb" value="1" onChange="update6(this)" style="accent-color: #3D52A0;">
 			  <label for="element6"> <b>Sb</b></label><br>
 
-				 <pre>Select either cations or anions:</pre>
-				<select name="combination" id="comb1"  style="background-color: #FEFFFF; width: 10%; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;" onChange="Visibility1()">
+				 <p style="flex-wrap: wrap; font-family: Courier New, monospace;">Select either cations or anions:</pre>
+				<select name="combination" id="comb1"  style="background-color: #FEFFFF; width: 75px; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;" onChange="Visibility1()">
 					<option value="empty"></option>
 				  <option value="cation">Cation</option>
 				  <option value="anion">Anion</option>
 				</select>
-				<pre id="stext1" >Select the desired variation of elements:</pre>
-				<select name="combination" id="comb2"  style="background-color: #FEFFFF; width: 10%; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;">
+				<p style="flex-wrap: wrap; font-family: Courier New, monospace;" id="stext1" >Select the desired variation of elements:</pre>
+				<select name="combination" id="comb2"  style="background-color: #FEFFFF; width: 75px; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;">
 					<option value="Al, Ga">Al, Ga</option>
 				  <option value="Al, In">Al, In</option>
 				  <option value="Ga, In">Ga, In</option>
 				</select>
-				<select name="combination" id="comb3"  style="background-color: #FEFFFF; width: 10%; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;">
+				<select name="combination" id="comb3"  style="background-color: #FEFFFF; width: 75px; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;">
 					<option value="P, As">P, As</option>
 				  <option value="P, Sb">P, Sb</option>
 				  <option value="As, Sb">As, Sb</option>
 				</select>
+		    <input type="number" id="num" min="0" max="1.0" value="1" step="0.01" style="background-color: #FEFFFF; color: #7091E6; margin-botom: 20px; border: none; padding: 10px; display: inline-flex; font-size: 14px; margin: 4px 2px; border-radius: 12px; text-align: center;"/>
 				<p></p>
-				<button py-click="update_data" style="background-color: #7091E6; width: 10%; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px;" onclick="myFunction()">Plot</button>
+				<button py-click="update_data" style="background-color: #7091E6; width: 10%; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; word-wrap: break-word; width: 50px;" onclick="myFunction()">Plot</button>
 				<p id="output2" style="font-size: 14px; font-family: Courier New, monospace; color:#3D52A0; text-align: center;"></p>
-				<div id="chart" class="div" style="transform: translateX(18%); color: red;"></div>
+				<div id="chart" class="div" style="transform: translateX(7.5%); color: red; min-width: 5%; min-height: 5%; max-width: 74%; max-height: 75%;"></div>
 			</div>
-		</div>
-		<div style="float:left; width: 98%; height: 50px; color: #7091E6; margin-bottom: 0px; padding: 10px; display: inline-block; font-size: 14px; margin: 4px 2px; border-radius: 12px; border: 2px solid;">
-    	<pre style="margin-top: 0px;"><b>Please cite:</b><br>- Mohammad Alsalman et. al., “Bandgap Energy Prediction of Senary Zincblende III-V Semiconductor Compounds using Machine Learning,” Materials Science in Semiconductor<br>  Processing, vol. 161, p. 107461, 2023.</pre>
 		</div>
 		<script>
 			// Variables
@@ -139,6 +144,7 @@
 		  const p       = document.getElementById("element4");
 		  const as      = document.getElementById("element5");
 		  const sb      = document.getElementById("element6");
+		  var num     = document.getElementById("num");
 		  var sc        = 0;
 		  var sa        = 0;
 
@@ -149,10 +155,18 @@
 	    num4.value          = 0;
 	    num5.value          = 1;
 	    num6.value          = 0;
+	    num.value           = 1;
+	    // num1.disabled       = true;
+	    // num2.disabled       = true;
+	    // num3.disabled       = true;
+	    // num4.disabled       = true;
+	    // num5.disabled       = true;
+	    // num6.disabled       = true;
 	  	stext1.style.display = "none";
 	    comb2.style.display  = "none";
 	    comb3.style.display  = "none";
 	    comb1.value          = "empty";
+	    num.style.display    = "none";
 	    al.checked = false;
 	    ga.checked = false;
 	    ni.checked = false;
@@ -169,21 +183,33 @@
 			  }
 			}
 			function Visibility1() {
-			  if (comb1.value == "cation" && sc == 3) {
+			  if (comb1.value == "cation") {
 			  	stext1.style.display = "block";
-			    comb2.style.display = "block";
-			    comb3.style.display = "none";
-			  } else if (comb1.value == "anion" && sa == 3){
+			  	if (sc == 6) {
+			  		comb2.style.display = "block";
+			  		comb3.style.display = "none";
+			  		num.style.display = "block";
+			  	}
+			  } else if (comb1.value == "anion"){
 			  	stext1.style.display = "block";
-			    comb2.style.display = "none";
-			    comb3.style.display = "block";
+			  	if (sa == 6) {
+			  		comb2.style.display = "block";
+			  		comb3.style.display = "none";
+			  		num.style.display = "block";
+			  	}
 			  } else {
 			  	stext1.style.display = "none";
 			    comb2.style.display = "none";
 			    comb3.style.display = "none";
+			    num.style.display = "none";
 			  }
 			}
 			function update1(check1) {
+			    if(sc == 6){
+				  	stext1.style.display = "none";
+				    comb2.style.display = "none";
+				    comb3.style.display = "none";
+				  }
 			    if(check1.checked == true){
 			    	sc = sc + 1;
 			    	comb1.value = "empty";
@@ -193,13 +219,77 @@
 			    	comb1.value = "empty";
 			    }
 			}
-			function update2(check2) {
+			function update2(check1) {
+			    if(sc == 6){
+				  	stext1.style.display = "none";
+				    comb2.style.display = "none";
+				    comb3.style.display = "none";
+				  }			    if(check1.checked == true){
+			    	sc = sc + 2;
+			    	comb1.value = "empty";
+			    }
+			    if(check1.checked == false){
+			    	sc = sc - 2;
+			    	comb1.value = "empty";
+			    }
+			}
+			function update3(check1) {
+			    if(sc == 6){
+				  	stext1.style.display = "none";
+				    comb2.style.display = "none";
+				    comb3.style.display = "none";
+				  }
+			    if(check1.checked == true){
+			    	sc = sc + 3;
+			    	comb1.value = "empty";
+			    }
+			    if(check1.checked == false){
+			    	sc = sc - 3;
+			    	comb1.value = "empty";
+			    }
+			}
+			function update4(check2) {
+			    if(sa == 6){
+				  	stext1.style.display = "none";
+				    comb2.style.display = "none";
+				    comb3.style.display = "none";
+				  }
 			    if(check2.checked == true){
 			    	sa = sa + 1;
 			    	comb1.value = "empty";
 			    }
 			    if(check2.checked == false){
 			    	sa = sa - 1;
+			    	comb1.value = "empty";
+			    }
+			}
+			function update5(check2) {
+			    if(sa == 6){
+				  	stext1.style.display = "none";
+				    comb2.style.display = "none";
+				    comb3.style.display = "none";
+				  }
+			    if(check2.checked == true){
+			    	sa = sa + 2;
+			    	comb1.value = "empty";
+			    }
+			    if(check2.checked == false){
+			    	sa = sa - 2;
+			    	comb1.value = "empty";
+			    }
+			}
+			function update6(check2) {
+			    if(sa == 6){
+				  	stext1.style.display = "none";
+				    comb2.style.display = "none";
+				    comb3.style.display = "none";
+				  }
+			    if(check2.checked == true){
+			    	sa = sa + 3;
+			    	comb1.value = "empty";
+			    }
+			    if(check2.checked == false){
+			    	sa = sa - 3;
 			    	comb1.value = "empty";
 			    }
 			}
@@ -289,7 +379,7 @@
 					("E","$y"),
 					]
 
-					p  = figure(x_range=(0,1), width=450, height=450, tooltips=TOOLTIPS)
+					p  = figure(x_range=(0,1), width=450, height=450, tooltips=TOOLTIPS, sizing_mode="stretch_both")
 					p.line('x', 'y1', source=source, line_width=3, line_alpha=0.6, color="blue", legend_label="Gamma")
 					p.line('x', 'y2', source=source, line_width=3, line_alpha=0.6, color="red", legend_label="X")
 					p.legend.location = "top_left"
