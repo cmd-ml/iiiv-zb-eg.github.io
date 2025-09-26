@@ -1,4 +1,4 @@
-**Bandgap Energy ML models for Senary Zincblende III-V Semiconductor Compounds:**
+# ML models for Bandgap Energy Prediction of Senary Zincblende III-V Semiconductor Compounds:
 
 This repository has the predictive models of the bandgap energy for III-V semiconductor compounds. The embeded webiste has a proper GUI for predicting the energy bandgap of the compounds of interest.
 
