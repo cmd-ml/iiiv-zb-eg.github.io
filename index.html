@@ -34,17 +34,17 @@
 	}
 	</style>
   </head>
-  <body style="background-color: #FEFFFF;">
-  	<div style="color:#17252A;text-align:center; min-height: 50px; margin-bottom: 40px; text-overflow: ellipsis;">
+  <body style="background-color: #f9f8fd;">
+  	<div style="color:#17252A; text-align:center; min-height: 50px; margin-bottom: 40px; text-overflow: ellipsis;">
     	<h1>Energy Bandgap Predictor of III-V Senary Zincblende Compounds:<br>Machine Learning Model</h1>
     </div>
-		<div style="float:left; min-width:405px; max-height: 180px; color: #2B7A78; margin-bottom: 0px; padding: 10px; font-size: 16px; margin: 4px 2px; border-radius: 30px; border: 4px solid;">
+		<div style="float:left; min-width:405px; max-height: 180px; color: #7dce94; margin-bottom: 0px; padding: 10px; font-size: 16px; margin: 4px 2px; border-radius: 30px; border: 4px solid;">
     	<p style="margin-top: 0px; flex-wrap: wrap; font-family: Courier New, monospace; color: #17252A;"><b>Please cite:</b><br>- Mohammad Alsalman et. al., “Bandgap Energy Prediction of Senary Zincblende III-V Semiconductor Compounds using Machine Learning,” Materials Science in Semiconductor Processing, vol. 161, p. 107461, 2023.</p>
 		</div>
-		<div  style="float:left; width: 100%; min-width:200px; max-height: 1000px; color: #17252A; font-size: 20px; font-size: 14px; text-align: center; font-size: 16px; margin: 0; padding:0;" class="w3-show-inline-block">
-    	<div style="min-hieght: 50px; background-color: #3AAFA9; border: none; font-size: 16px; color:#17252A; text-overflow: ellipsis; text-align:left;">
-	    	<p style="font-size: 20px; margin-bottom: 0px; margin-left: 10px; height: 5px; wrap; font-family: Courier New, monospace; color:#FEFFFF;"><b>User Guide:</b></p>
-	    	<p style="font-size: 16px; margin-left: 15px; flex-wrap: wrap; font-family: Courier New, monospace; color:#FEFFFF;">- Please wait for around 30 seconds until the webpage is loaded.<br>- If the website is not responding, please try to open the website using different web browser.<br>- If the website is not responding, please try opening it using a different web browser or check if your Internet service provider is blocking the application's executable segment.<br>- The figure of the predicted energy bandgap will appear after pressing the "Plot" button.<br> - Set of examples: <i>GaAs, Al0.5Ga0.5As, InP0.5As0.5, Al0.2Ga0.6In0.2P0.3As0.7, Al0.14Ga0.5In0.36P0.328As0.242Sb0.430.</i><br>- For plotting, only single variation will be plotted based on your inputs. Criteria are as follows:<br> 
+		<div style="float:left; width: 100%; min-width:200px; max-height: 1000px; font-size: 20px; font-size: 14px; text-align: center; font-size: 16px; margin: 0; padding:0; margin-left: 20px; color:#7dce94;" class="w3-show-inline-block">
+    	<div style="min-hieght: 50px; border: none; font-size: 16px; color:#17252A; text-overflow: ellipsis; text-align:left;">
+	    	<p style="font-size: 20px; margin-bottom: 0px; margin-left: 10px; height: 5px; wrap; font-family: Courier New, monospace; color:#17252A;"><b>User Guide:</b></p>
+	    	<p style="font-size: 16px; margin-left: 15px; flex-wrap: wrap; font-family: Courier New, monospace; color:#17252A;">- Please wait for around 30 seconds until the webpage is loaded.<br>- If the website is not responding, please try to open the website using different web browser.<br>- If the website is not responding, please try opening it using a different web browser or check if your Internet service provider is blocking the application's executable segment.<br>- The figure of the predicted energy bandgap will appear after pressing the "Plot" button.<br> - Set of examples: <i>GaAs, Al0.5Ga0.5As, InP0.5As0.5, Al0.2Ga0.6In0.2P0.3As0.7, Al0.14Ga0.5In0.36P0.328As0.242Sb0.430.</i><br>- For plotting, only single variation will be plotted based on your inputs. Criteria are as follows:<br> 
   				i  -  If the initial compound is <i>GaAs</i> and the final compound is <i>AlAs</i>, it varies the molarity of <i>Ga</i> and <i>Al</i>.<br>  
   				ii -  If the initial compound is <i>Al0.3Ga0.7As</i> and the final compound is <i>Al0.3Ga0.7Sb</i>, it varies the molarity of <i>As</i> and <i>Sb</i>.<br>
   				iii - If the initial compound is <i>Al0.2Ga0.6In0.2P0.3As0.7</i> and the final compound is <i>Al0.6Ga0.2In0.2P0.3As0.7</i>, it varies the molarity of <i>Al</i> and <i>Ga</i> from the initial fraction to the final fraction of these two elements.
@@ -52,43 +52,38 @@
 	    </div>
 	  </div>
 		<div id="operation" style="text-align:center; min-width:405px; max-height: 200px; margin-bottom: 0px; padding: 10px; font-size: 16px; margin: 4px 2px; border-radius: 30px; color: #17252A;">
-			<p style="flex-wrap: wrap; font-family: Courier New, monospace;">Please click on the type of prediction:</pre></p>
-			<button id="op1" style="background-color: #6C7A89; width: 100px; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; font-family: Arial, Helvetica, sans-serif; margin: 4px 2px; border-radius: 12px; word-wrap: break-word; height: 50px;" onclick="operation1()" class="w3-btn w3-black">Single Value</button>
-			<button id="op2" style="background-color: #6C7A89; width: 100px; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; font-family: Arial, Helvetica, sans-serif; margin: 4px 2px; border-radius: 12px; word-wrap: break-word; height: 50px;" onclick="operation2()" class="w3-btn w3-black">Energy Plot</button>
-				
-				<p style="font-size: 12px; flex-wrap: wrap; font-family: Courier New, monospace; text-align: center;"><b>The number of users:</b></p>
-				<div id="sfcdl2h5jk7ewby83f5putcf9wg23kjhhaf"></div>
-				<script type="text/javascript" src="https://counter1.optistats.ovh/private/counter.js?c=dl2h5jk7ewby83f5putcf9wg23kjhhaf&down=async" async></script>
-				<noscript><a href="https://www.freecounterstat.com" title="website hit counter"><img src="https://counter1.optistats.ovh/private/freecounterstat.php?c=dl2h5jk7ewby83f5putcf9wg23kjhhaf" border="0" title="website hit counter" alt="website hit counter"></a></noscript>
+			<p style="flex-wrap: wrap; font-family: Courier New, monospace;"><b>Please click on the type of prediction:</b></pre></p>
+			<button id="op1" style="background-color: #7dce94; width: 100px; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; font-family: Arial, Helvetica, sans-serif; margin: 4px 2px; border-radius: 12px; word-wrap: break-word; height: 50px;" onclick="operation1()" class="w3-btn">Single Value</button>
+			<button id="op2" style="background-color: #7dce94; width: 100px; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; font-family: Arial, Helvetica, sans-serif; margin: 4px 2px; border-radius: 12px; word-wrap: break-word; height: 50px;" onclick="operation2()" class="w3-btn">Energy Plot</button>
 			  <p style="font-size: 12px; flex-wrap: wrap; font-family: Courier New, monospace; text-align: center;"><b>©2025 cmd-ml Group. (ver. 25.1)</b></p>
 		</div>
-    <div id="Panel1" style="float:left; width: 100%; min-width:405px; min-height: 200px;  background-color: #DEF2F1; font-size: 16px; margin: 0; padding:0;">
+    <div id="Panel1" style="float:left; width: 100%; min-width:405px; min-height: 200px; font-size: 16px; margin: 0; padding:0;">
     	<div id="Value1">
-		    <p style="font-size: 16px; flex-wrap: wrap; font-family: Courier New, monospace; color:#17252A;"><b>Type the compound of interest:</b>
+		    <p style="font-size: 16px; flex-wrap: wrap; font-family: Courier New, monospace; color:#17252A; margin-left: 20px;"><b>Type the compound of interest:</b>
 		    	Configuration: <i>Al<sub>x<sub>1</sub></sub>Ga<sub>x<sub>2</sub></sub>In<sub>x<sub>3</sub></sub>P<sub>y<sub>1</sub></sub>As<sub>y<sub>2</sub></sub>Sb<sub>y<sub>3</sub></sub></i> <br>For example, <i>Al0.5Ga0.5As</i></p>
 	    </div>
 	    <div id="Plot">
-	    <p style="font-size: 16px; flex-wrap: wrap; font-family: Courier New, monospace; color:#17252A;"><b>Type the initial compound:</b>
+	    <p style="font-size: 16px; flex-wrap: wrap; font-family: Courier New, monospace; color:#17252A; margin-left: 20px;"><b>Type the initial compound:</b>
 	    	Configuration: <i>Al<sub>x<sub>1</sub></sub>Ga<sub>x<sub>2</sub></sub>In<sub>x<sub>3</sub></sub>P<sub>y<sub>1</sub></sub>As<sub>y<sub>2</sub></sub>Sb<sub>y<sub>3</sub></sub></i> <br>For example, <i>GaAs</i></p>
 	  	</div>
-	  	<input type="text" id="compound1" name="fname" style="font-family: 'DejaVu Math TeX Gyre', serif; font-size: 26px; width: 90%; height: 30%; display: block; margin: 0 auto; border-radius: 5px; border: 0px solid black; text-align: center;"><br><br>
+	  	<input type="text" id="compound1" name="fname" style="font-family: 'DejaVu Math TeX Gyre', serif; font-size: 26px; width: 90%; height: 30%; display: block; margin: 0 auto; border-radius: 5px; border: 1px solid; color: #3d3d3f; text-align: center;"><br><br>
 	  	<div id="Value2" class="w3-bar" style="text-align: center; align-items: center; display: block;">
-				<button py-click="fun1" style="background-color: #17252A; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 16px; margin: 4px 2px; border-radius: 12px; word-wrap: break-word; width: 100px;" onclick="myPlot1()" class="w3-btn w3-teal">Predict</button>
+				<button py-click="fun1" style="background-color: #7dce94; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 16px; margin: 4px 2px; border-radius: 12px; word-wrap: break-word; width: 100px;" onclick="myPlot1()" class="w3-btn">Predict</button>
 	  	</div>
 	  	<p id="output1" style="font-size: 20px; font-family: Courier New, monospace; color:#17252A; text-align: center;"></p>
 	    <div id="Panel2" style="text-align: center;">
-		    <p id="Plot"style="font-size: 16px; flex-wrap: wrap; font-family: Courier New, monospace; color:#17252A;text-align: left;"><b>Type the final compound:</b>
+		    <p id="Plot"style="font-size: 16px; flex-wrap: wrap; font-family: Courier New, monospace; color:#17252A;text-align: left; margin-left: 20p;"><b>Type the final compound:</b>
 		    	Configuration: <i>Al<sub>x<sub>1</sub></sub>Ga<sub>x<sub>2</sub></sub>In<sub>x<sub>3</sub></sub>P<sub>y<sub>1</sub></sub>As<sub>y<sub>2</sub></sub>Sb<sub>y<sub>3</sub></sub></i> <br>For example, <i>AlAs</i></p>. 
-		    <input type="text" id="compound2" name="fname" style="font-family: 'DejaVu Math TeX Gyre', serif; font-size: 26px; width: 90%; height: 30%; display: block; margin: 0 auto; border-radius: 5px; border: 0px solid black; text-align: center;"><br><br>
-				<button onclick="update()" py-click="fun2" style="background-color: #6C7A89; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 16px; margin: 4px 2px; border-radius: 12px; word-wrap: break-word; width: 100px;" onclick="myPlot1()" class="w3-btn w3-teal">Predict</button>
+		    <input type="text" id="compound2" name="fname" style="font-family: 'DejaVu Math TeX Gyre', serif; font-size: 26px; width: 90%; height: 30%; display: block; margin: 0 auto; border-radius: 5px; border: 1px solid; color: #3d3d3f; text-align: center;"><br><br>
+				<button onclick="update()" py-click="fun2" style="background-color: #7dce94; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 16px; margin: 4px 2px; border-radius: 12px; word-wrap: break-word; width: 100px;" onclick="myPlot1()" class="w3-btn">Predict</button>
 		    	<p id="output2" style="font-size: 20px; font-family: Courier New, monospace; color:#17252A; text-align: center;"></p>
 		    	<div id="chart" class="div" style=" color: red; min-width: 5%; min-height: 5%; max-width: 90%; max-height: 75%;"></div>
 		  </div>
 		</div>
 	  <div class="w3-show-inline-block" style="float:left; width: 100%; min-width:405px; max-height: 400px; color: #17252A; margin-botom: 5px; padding: 5px; font-size: 20px; margin: 4px 2px; font-size: 26px; text-align: center;">
 		  <div id="back_reset" class="w3-bar">
-				<button onclick="my_back()" style="ackground-color: #6C7A89; width: 100px; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; font-family: Arial, Helvetica, sans-serif; margin: 4px 2px; border-radius: 12px; word-wrap: break-word; height: 50px;" class="w3-btn w3-black">BACK</button>
-				<button onclick="my_reset()" style="ackground-color: #6C7A89; width: 100px; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; font-family: Arial, Helvetica, sans-serif; margin: 4px 2px; border-radius: 12px; word-wrap: break-word; height: 50px;" class="w3-btn w3-black">RESET</button>
+				<button onclick="my_back()" style="background-color: #3d3d3f; width: 100px; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; font-family: Arial, Helvetica, sans-serif; margin: 4px 2px; border-radius: 12px; word-wrap: break-word; height: 50px;" class="w3-btn">BACK</button>
+				<button onclick="my_reset()" style="background-color: #3d3d3f; width: 100px; color: #FEFFFF; margin-botom: 20px; border: none; padding: 10px; display: inline-block; font-size: 14px; font-family: Arial, Helvetica, sans-serif; margin: 4px 2px; border-radius: 12px; word-wrap: break-word; height: 50px;" class="w3-btn">RESET</button>
 			</div>
 	  </div>
 		<script>
